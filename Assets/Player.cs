@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
+    //public GameObject[] beers;
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -23,5 +23,14 @@ public class Player : MonoBehaviour {
             position.x = position.x + 3.5f;
             this.transform.position = position;
         }
+
+        /*beers = GameObject.FindGameObjectsWithTag("Beer");
+
+        foreach (GameObject beer in beers)
+        {
+            beer.gameObject.SendMessage("ApplyDamage", 10);
+        }*/
+
+        
     }
 }
