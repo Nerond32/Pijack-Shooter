@@ -44,7 +44,8 @@ public class Player : MonoBehaviour {
         }
         if (other.gameObject.tag == "Kar")
         {
-            gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("pijackheroded");
+            var sprite = Resources.Load<Sprite>("pijackheroded");
+            this.GetComponent<SpriteRenderer>().sprite = sprite;
         }
     }
 }
