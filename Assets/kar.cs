@@ -21,7 +21,7 @@ public class kar : MonoBehaviour {
         }
         else
         {
-            position.y = position.y - 0.1f;
+            position.y = position.y - Assets.DataHendler.carVelocity;
         }
         this.transform.position = position;
     }

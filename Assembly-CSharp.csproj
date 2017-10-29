@@ -51,6 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\DataHendler.cs" />
      <Compile Include="Assets\GameManager.cs" />
      <Compile Include="Assets\kar.cs" />
      <Compile Include="Assets\Player.cs" />

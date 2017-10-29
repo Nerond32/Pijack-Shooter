@@ -1,31 +1,36 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
     //public GameObject[] beers;
     // Use this for initialization
+    public Text t;
+    public Sprite sprite;
     void Start () {
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && this.transform.position.x > -6)
+        if (!Assets.DataHendler.isDed)
         {
-            Vector3 position = this.transform.position;
-            position.x = position.x - 3.5f;
-            this.transform.position = position;
+            if (Input.GetKeyDown(KeyCode.LeftArrow) && this.transform.position.x > -6)
+            {
+                Vector3 position = this.transform.position;
+                position.x = position.x - 3.5f;
+                this.transform.position = position;
+            }
+            if (Input.GetKeyDown(KeyCode.RightArrow) && this.transform.position.x < 6)
+            {
+                Vector3 position = this.transform.position;
+                position.x = position.x + 3.5f;
+                this.transform.position = position;
+            }
+            Vector3 position2 = this.transform.position;
+            position2.y = -6.81f;
+            this.transform.position = position2;
         }
-        if (Input.GetKeyDown(KeyCode.RightArrow) && this.transform.position.x < 6)
-        {
-            Vector3 position = this.transform.position;
-            position.x = position.x + 3.5f;
-            this.transform.position = position;
-        }
-        Vector3 position2 = this.transform.position;
-        position2.y = -6.81f;
-        this.transform.position = position2;
-        
         /*beers = GameObject.FindGameObjectsWithTag("Beer");
 
         foreach (GameObject beer in beers)
@@ -40,11 +45,14 @@ public class Player : MonoBehaviour {
     {
         if (other.gameObject.tag == "Beer")
         {
-            Debug.Log("AAAA");
+            Object.Destroy(other.gameObject);
+            Assets.DataHendler.carVelocity += 0.05f;
+            Assets.DataHendler.points += 100;
+            t.text = "Points: " + Assets.DataHendler.points;
         }
         if (other.gameObject.tag == "Kar")
         {
-            var sprite = Resources.Load<Sprite>("pijackheroded");
+            Assets.DataHendler.isDed = true;
             this.GetComponent<SpriteRenderer>().sprite = sprite;
         }
     }
