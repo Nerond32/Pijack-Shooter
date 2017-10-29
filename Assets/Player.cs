@@ -30,7 +30,23 @@ public class Player : MonoBehaviour {
         {
             beer.gameObject.SendMessage("ApplyDamage", 10);
         }*/
+     
 
-        
+    }
+
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.name == "Beer")
+        {
+            Vector3 position = this.transform.position;
+            position.x = position.x - 3000.5f;
+            this.transform.position = position;
+        }
+        else
+        {
+            Vector3 position = this.transform.position;
+            position.x = position.x - 3000.5f;
+            this.transform.position = position;
+        }
     }
 }

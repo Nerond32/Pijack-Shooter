@@ -2,15 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class powerupBeer : MonoBehaviour {
+public class kar : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-        
+    // Use this for initialization
+    void Start()
+    {
+
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
         Vector3 position = this.transform.position;
         if (position.y < -8.9f)
         {
@@ -24,5 +26,4 @@ public class powerupBeer : MonoBehaviour {
         this.transform.position = position;
     }
 
-    
 }
