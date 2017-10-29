@@ -6,8 +6,7 @@ public class Player : MonoBehaviour {
     //public GameObject[] beers;
     // Use this for initialization
     void Start () {
-		
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -23,7 +22,10 @@ public class Player : MonoBehaviour {
             position.x = position.x + 3.5f;
             this.transform.position = position;
         }
-
+        Vector3 position2 = this.transform.position;
+        position2.y = -6.81f;
+        this.transform.position = position2;
+        
         /*beers = GameObject.FindGameObjectsWithTag("Beer");
 
         foreach (GameObject beer in beers)
@@ -34,19 +36,15 @@ public class Player : MonoBehaviour {
 
     }
 
-    void OnCollisionEnter(Collision other)
+    void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.name == "Beer")
+        if (other.gameObject.tag == "Beer")
         {
-            Vector3 position = this.transform.position;
-            position.x = position.x - 3000.5f;
-            this.transform.position = position;
+            Debug.Log("AAAA");
         }
-        else
+        if (other.gameObject.tag == "Kar")
         {
-            Vector3 position = this.transform.position;
-            position.x = position.x - 3000.5f;
-            this.transform.position = position;
+            gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("pijackheroded");
         }
     }
 }
