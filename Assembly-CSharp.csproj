@@ -51,7 +51,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\scr1.cs" />
+     <Compile Include="Assets\GameManager.cs" />
+     <Compile Include="Assets\kar.cs" />
+     <Compile Include="Assets\Player.cs" />
+     <Compile Include="Assets\powerupBeer.cs" />
+     <Compile Include="Assets\ScrollingBackground.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
