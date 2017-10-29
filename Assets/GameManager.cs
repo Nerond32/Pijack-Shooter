@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour {
     // Use this for initialization
    // public ArrayList<GameObject> powerups = new ArrayList<GameObject>();
     void Start () {
-        InvokeRepeating("Spawn", 0.0f, 1.5f);
+        InvokeRepeating("Spawn", 0.0f, 0.8f);
     }
 	
 	// Update is called once per fram
