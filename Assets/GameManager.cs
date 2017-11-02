@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour {
     // Use this for initialization
    // public ArrayList<GameObject> powerups = new ArrayList<GameObject>();
     void Start () {
-        InvokeRepeating("Spawn", 0.0f, 0.8f);
+        InvokeRepeating("Spawn", 0.0f, 0.4f);
     }
 	
 	// Update is called once per fram
@@ -25,7 +25,10 @@ public class GameManager : MonoBehaviour {
         var spawn = Random.Range(0, 5);
         var spawnName = Random.Range(0, 3);
         Vector3 position = new Vector3(positions[spawn], 15.0f, -1.0f);
-        Instantiate(Resources.Load(powerupNames[spawnName]), position, Quaternion.identity);
+        if (powerupNames[spawnName] == "KarPrefab" && Assets.DataHendler.isDed || !Assets.DataHendler.isDed)
+        {
+            Instantiate(Resources.Load(powerupNames[spawnName]), position, Quaternion.identity);
+        }
     }
 
     /*void CheckCollisions()
