@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
     public static float[] positions = { -7.0f , -3.0f, 0.3f, 4.0f, 7.3f };
     //public static string[] powerupNames = { "BeerPrefab", "BeerPrefab", "BeerPrefab", "KarPrefab" };
     public static string[] powerupNames = { "BeerPrefab", "KarPrefab" };
+    public Text points;
     // Use this for initialization
    // public ArrayList<GameObject> powerups = new ArrayList<GameObject>();
     void Start () {

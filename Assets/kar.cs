@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class kar : MonoBehaviour {
-
+    public Sprite sprite;
+    private bool destroyed = false;
+    private float baseSpeed = 0.25f;
     // Use this for initialization
     void Start()
     {
@@ -21,9 +24,25 @@ public class kar : MonoBehaviour {
         }
         else
         {
-            position.y = position.y - Assets.DataHendler.carVelocity;
+            var velocity = baseSpeed + Mathf.Sqrt(1.0f+(float)Assets.DataHendler.points)/200;
+            position.y = position.y - velocity;
+            Debug.Log(velocity);
         }
         this.transform.position = position;
     }
-
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Bullet")
+        {
+            destroyed = true;
+            this.GetComponent<SpriteRenderer>().sprite = sprite;
+            Invoke("DestroyCar", 0.2f);
+            Object.Destroy(other.gameObject);
+            Assets.Player.AddPoints(200);
+        }
+    }
+    void DestroyCar()
+    {
+        Object.Destroy(this.gameObject);
+    }
 }
