@@ -24,7 +24,9 @@ public class kar : MonoBehaviour {
         }
         else
         {
-            var velocity = baseSpeed + Mathf.Sqrt(1.0f+(float)Assets.DataHendler.points)/200;
+            var velModifier = (float)(Assets.DataHendler.points - Assets.DataHendler.slower);
+            if (velModifier < baseSpeed) velModifier = baseSpeed;
+            var velocity = baseSpeed + Mathf.Sqrt(1.0f+(float)velModifier)/200;
             position.y = position.y - velocity;
             Debug.Log(velocity);
         }

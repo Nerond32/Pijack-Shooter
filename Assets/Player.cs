@@ -41,7 +41,7 @@ namespace Assets
                         Vector3 position = this.transform.position;
                         position.z = -3.0f;
                         Instantiate(Resources.Load("BulletPrefab"), position, Quaternion.identity);
-                        //Assets.DataHendler.hasAmmo = false;
+                        Assets.DataHendler.hasAmmo = false;
                     }
                 }
                 Vector3 position2 = this.transform.position;
@@ -66,7 +66,13 @@ namespace Assets
                 Assets.DataHendler.hasAmmo = true;
                 AddPoints(100);
             }
-            if (other.gameObject.tag == "Kar")
+            if (other.gameObject.tag == "Meth")
+            {
+                Object.Destroy(other.gameObject);
+                Assets.DataHendler.slower += 250;
+                AddPoints(50);
+            }
+                if (other.gameObject.tag == "Kar")
             {
                 Assets.DataHendler.isDed = true;
                 this.GetComponent<SpriteRenderer>().sprite = sprite;

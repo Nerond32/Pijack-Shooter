@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class powerupBeer : MonoBehaviour {
+public class powerupBeer : Assets.PowerUp
+{
 
 	// Use this for initialization
 	void Start () {
