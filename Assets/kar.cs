@@ -7,9 +7,11 @@ public class kar : MonoBehaviour {
     public Sprite sprite;
     private bool destroyed = false;
     private float baseSpeed = 0.25f;
-    // Use this for initialization
+	private bool isTaxi = false;
+    // Use this for initializationA
     void Start()
     {
+		Debug.Log(this.GetComponent<SpriteRenderer> ().sprite.name);
 
     }
 
