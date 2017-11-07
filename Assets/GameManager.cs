@@ -23,7 +23,8 @@ public class GameManager : MonoBehaviour {
     void Spawn()
     {
 		var spawnName = Random.Range(0, 6);
-		var spawn =  isKarPrefab(powerupNames[spawnName]) ? Random.Range(1, 4) : Random.Range(0, 5);       
+		var spawn =  isKarPrefab(powerupNames[spawnName]) ? Random.Range(1, 4) : Random.Range(0, 5);
+       
         Vector3 position = new Vector3(positions[spawn], 15.0f, -1.0f);
 
 		if ( isKarPrefab(powerupNames[spawnName])  && Assets.DataHendler.isDed || !Assets.DataHendler.isDed)
