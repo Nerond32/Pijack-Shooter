@@ -19,6 +19,7 @@ public class bulletscript : MonoBehaviour {
         }
         else
         {
+            transform.Rotate(Vector3.forward * -2.5f);
             position.y = position.y + 0.5f;
         }
         this.transform.position = position;

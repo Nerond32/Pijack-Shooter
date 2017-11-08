@@ -12,6 +12,7 @@ namespace Assets
         public Text tempt;
         public static Text t;
         public Sprite sprite;
+        public Text beers;
         void Start()
         {
             t = tempt;
@@ -36,12 +37,14 @@ namespace Assets
                 }
                 if (Input.GetKeyDown(KeyCode.Space) && this.transform.position.x < 6)
                 {
-                    if (Assets.DataHendler.hasAmmo)
+                    if (Assets.DataHendler.numberOfBullets > 0)
                     {
                         Vector3 position = this.transform.position;
                         position.z = -3.0f;
                         Instantiate(Resources.Load("BulletPrefab"), position, Quaternion.identity);
-                        Assets.DataHendler.hasAmmo = false;
+                        Assets.DataHendler.numberOfBullets--;
+                        beers.text = "Beers: " + Assets.DataHendler.numberOfBullets;
+
                     }
                 }
                 Vector3 position2 = this.transform.position;
@@ -63,8 +66,9 @@ namespace Assets
             if (other.gameObject.tag == "Beer")
             {
                 Object.Destroy(other.gameObject);
-                Assets.DataHendler.hasAmmo = true;
-                AddPoints(100);
+                Assets.DataHendler.numberOfBullets ++;
+                beers.text = "Beers: " + Assets.DataHendler.numberOfBullets;
+                AddPoints(10);
             }
             if (other.gameObject.tag == "Meth")
             {
