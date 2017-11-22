@@ -8,6 +8,7 @@ public class ScrollingBackground : MonoBehaviour
     void Start()
     {
         initPosition = this.transform.position;
+	
     }
 
     private void Update()
@@ -15,13 +16,13 @@ public class ScrollingBackground : MonoBehaviour
         if (!Assets.DataHendler.isDed)
         {
             Vector3 position = this.transform.position;
-            if (position.y < -8.9f)
+            if (position.y < -3.6f)
             {
                 position = initPosition;
             }
             else
             {
-                position.y = position.y - 0.1f;
+                position.y = position.y - 0.05f;
             }
             this.transform.position = position;
         }
